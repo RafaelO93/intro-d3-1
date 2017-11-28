@@ -48,14 +48,21 @@
        * O índice é importante para dizer onde a barra será desenhada, por exemplo.
        * (Nem pense em fazer hardcoded :)).
        */
-
+      var i =1;
+      var j = 0;
       svg.selectAll('rect')
           .data(dados)
           .enter()
             .append('rect')
               .attr('x', 0) // A função com dois parâmetros pode entrar aqui
-              .attr('y', 0) // e aqui
-              .attr('width', 30)
+              .attr('y', function teste(){
+                i++;
+                return i*30;
+              }) // e aqui
+              .attr('width', function teste(){
+                
+                return dados[j++];
+              } )
               .attr('height', 20);
 
       /* Mais dicas :
